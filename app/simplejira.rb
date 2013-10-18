@@ -5,9 +5,9 @@ require 'net/http'
 require 'yaml'
 
 def read_config
-  config = YAML.load_file('config.yml')
-  query = YAML.load_file('query.yml')
-  api = YAML.load_file('api.yml')
+  config = YAML.load_file('config/config.yml')
+  query = YAML.load_file('config/query.yml')
+  api = YAML.load_file('config/api.yml')
 
   @username = config['config']['username']
   @password = config['config']['password']
