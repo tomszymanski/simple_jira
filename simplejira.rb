@@ -6,11 +6,14 @@ require 'yaml'
 
 def read_config
   config = YAML.load_file('config.yml')
+  query = YAML.load_file('query.yml')
+
   @username = config['config']['username']
   @password = config['config']['password']
   @basic_uri = config['config']['host']+config['api']['api_version']
   @search_uri = @basic_uri+config['api']['search']
-  @query = config['query']
+
+  @query = query['query']
 end
 
 def get_jira_json(jira_uri,additional_params)
@@ -22,11 +25,19 @@ def get_jira_json(jira_uri,additional_params)
     request = Net::HTTP::Get.new uri.request_uri
     request.basic_auth @username, @password
 
-    response = http.request request # Net::HTTPResponse object
+    response = http.request request
 
     json_response = JSON.parse(response.body)
-    puts json_response["total"]
+    return json_response
   end
 end
 
-get_jira_json(@search_uri,@query['code_review'])
+def display_query_totals
+  read_config
+  @query.each do |query_name,query|
+    total = get_jira_json(@search_uri,query)["total"]
+    puts "#{query_name} : #{total}"
+  end
+end
+
+display_query_totals
