@@ -32,12 +32,12 @@ def get_jira_json(jira_uri,additional_params)
   end
 end
 
-def display_query_totals
+def display_query_result(key_you_want_to_display)
   read_config
   @query.each do |query_name,query|
-    total = get_jira_json(@search_uri,query)["total"]
+    total = get_jira_json(@search_uri,query)[key_you_want_to_display]
     puts "#{query_name} : #{total}"
   end
 end
 
-display_query_totals
+display_query_result('total')
