@@ -1,5 +1,7 @@
 Simple JIRA
 -----------
+[![Code Climate](https://codeclimate.com/repos/5261aa9256b10235ed104300/badges/fc3602c892b10c422d94/gpa.png)](https://codeclimate.com/repos/5261aa9256b10235ed104300/feed)
+
 This is a basic JIRA app that
   1. Connects to JIRA
   2. Does a Query
