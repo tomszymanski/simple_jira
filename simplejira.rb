@@ -7,11 +7,12 @@ require 'yaml'
 def read_config
   config = YAML.load_file('config.yml')
   query = YAML.load_file('query.yml')
+  api = YAML.load_file('api.yml')
 
   @username = config['config']['username']
   @password = config['config']['password']
-  @basic_uri = config['config']['host']+config['api']['api_version']
-  @search_uri = @basic_uri+config['api']['search']
+  @basic_uri = config['config']['host']+api['api']['api_version']
+  @search_uri = @basic_uri+api['api']['search']
 
   @query = query['query']
 end

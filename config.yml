@@ -2,7 +2,3 @@ config:
   username : 'your_username'
   password : 'your_password'
   host : 'https://your.domain.com'
-
-api : 
-  api_version : '/rest/api/2/'
-  search: 'search?jql='
