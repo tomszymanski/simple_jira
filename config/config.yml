@@ -1,0 +1,4 @@
+config:
+  username : 'tszymanski'
+  password : 'gut6leek'
+  host : 'https://jira.sendgrid.net'
