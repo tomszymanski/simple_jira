@@ -1,4 +1,4 @@
 config:
-  username : 'your_usernames'
+  username : 'your_username'
   password : 'your_password'
   host : 'https://your.domain.com'
