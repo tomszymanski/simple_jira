@@ -1,0 +1,11 @@
+config:
+  username : 'username'
+  password : 'password'
+  host : 'https://your.server.com'
+
+api : 
+  api_version : '/rest/api/2/'
+  search: 'search?jql='
+
+query:
+  code_review: 'status changed TO "Code Review" BEFORE startOfDay(-3d) and status="Code Review"'
