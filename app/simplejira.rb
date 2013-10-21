@@ -6,25 +6,14 @@ require 'yaml'
 
 require_relative 'gethttpsjson'
 require_relative 'readconfig'
+require_relative 'valuefromquery'
 
 class SimpleJira
-
-  def initialize(key_you_want_to_display='total')
-    config = ReadConfig.new
-
-    config.query.each do |query_name,query|
-      json = GetHttpsJson.new(
-        config.username,
-        config.password,
-        config.search_uri,
-        query
-      ).json
-      value = json[key_you_want_to_display]
-      puts "#{query_name} : #{value}"
-    end
-
+  def initialize
+    simple_jira = ValueFromQuery.new
+    simple_jira.get_value
+    simple_jira.display_value
   end
-
 end
 
 SimpleJira.new
