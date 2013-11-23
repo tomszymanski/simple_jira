@@ -12,7 +12,7 @@ Make sure to do this to prevent adding your personal credentials:
   git update-index --assume-unchanged config/config.yml
   ```
 
-Example for generating release notes:
+Example for generating release notes for the MEME project:
   ```
-  ruby app/simplejira.rb release_notes "status='accepted' and project='MEME'"
+  ruby app/simplejira.rb release_notes MEME
   ````
