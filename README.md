@@ -9,7 +9,7 @@ This is a basic JIRA app that
     
 Make sure to do this to prevent adding your personal credentials:
   ```
-  git update-index --assume-unchanged config.yml
+  git update-index --assume-unchanged config/config.yml
   ```
 
 Example for generating release notes:
