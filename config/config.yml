@@ -1,0 +1,4 @@
+config:
+  username : 'user'
+  password : 'password'
+  host : 'https://jira.host.name'
