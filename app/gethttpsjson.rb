@@ -7,7 +7,7 @@ class GetHttpsJson
 
     Net::HTTP.start(uri.host, uri.port,
       :use_ssl => uri.scheme == 'https',
-      :openssl_verify_mode => 'none') do |http|
+      :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
 
       request = Net::HTTP::Get.new uri.request_uri
       request.basic_auth @config.username, @config.password

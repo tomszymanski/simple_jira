@@ -2,6 +2,7 @@ require 'rubygems'
 require 'json'
 require 'net/http'
 require 'open-uri'
+require 'openssl'
 require 'optparse'
 require 'yaml'
 
