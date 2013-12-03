@@ -1,4 +1,4 @@
 config:
-  username : 'user'
-  password : 'password'
-  host : 'https://jira.host.names'
+  username : 'ldap-username'
+  password : 'ldap-password'
+  host : 'https://jira.sendgrid.net'
