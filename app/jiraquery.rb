@@ -30,13 +30,17 @@ class JiraQuery
   end
 
   def display_release_notes(project)
-    puts "## #{project}"
-    puts "###### #{Time.now.strftime("%b %d, %Y").to_s}"
-    @hash.each do |issue, fields|
-      puts "#### #{fields['summary']}"
-      puts "###### Jira issue: [#{issue}](#{@config.host}/browse/#{issue})"
-      puts fields['description']
-      puts "\n"
+    unless @hash.empty?
+      puts "## #{project}"
+      puts "###### #{Time.now.strftime("%b %d, %Y").to_s}"
+      @hash.each do |issue, fields|
+        puts "#### #{fields['summary']}"
+        puts "###### Jira issue: [#{issue}](#{@config.host}/browse/#{issue})"
+        puts fields['description']
+        puts "\n"
+      end
+    else
+      puts "No Release Notes"
     end
   end
 
