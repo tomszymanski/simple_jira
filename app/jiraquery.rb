@@ -31,8 +31,8 @@ class JiraQuery
 
   def display_release_notes
     @hash.each do |issue, fields|
-      puts "#####{fields['summary']}"
-      puts "######Jira issue: #{@config.host}/browse/#{issue}"
+      puts "##### {fields['summary']}"
+      puts "###### Jira issue: #{@config.host}/browse/#{issue}"
       puts fields['description']
       puts "\n"
     end
