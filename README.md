@@ -11,11 +11,10 @@ Make sure to do this to prevent adding your personal credentials:
   ```
   git update-index --assume-unchanged config/config.yml
   ```
-Next you'll need to update your config file with your credentials:
+Next you'll need to update your config file with your LDAP credentials:
   ```
   vim config/config.yml 
   ```
-  Then add your LDAP user/pass
 Example for generating release notes for the MEME project:
   ```
   ruby app/simplejira.rb release_notes MEME
