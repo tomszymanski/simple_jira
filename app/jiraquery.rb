@@ -34,7 +34,7 @@ class JiraQuery
     puts "###### #{Time.now.strftime("%b %d, %Y").to_s}"
     @hash.each do |issue, fields|
       puts "#### #{fields['summary']}"
-      puts "###### Jira issue: #{@config.host}/browse/#{issue}"
+      puts "###### Jira issue: [#{issue}](#{@config.host}/browse/#{issue})"
       puts fields['description']
       puts "\n"
     end
