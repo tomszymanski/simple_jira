@@ -15,9 +15,10 @@ Next you'll need to update your config file with your LDAP credentials:
   ```
   vim config/config.yml 
   ```
-Example for generating release notes for the MEME project:
+Example for generating release notes for the MEME project with an 'accepted' status:
   ```
-  ruby app/simplejira.rb release_notes MEME
+  ruby app/simplejira.rb release_notes MEME accepted
   ````
   This will grab all items in the accepted column
+
 

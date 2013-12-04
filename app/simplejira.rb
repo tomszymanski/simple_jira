@@ -14,9 +14,9 @@ case ARGV[0]
 
   when /^release_notes/i
     project = ARGV.slice(1..-1)
-    simple_jira = JiraQuery.new("status='accepted' and project='#{project[0].to_s}'")
+    simple_jira = JiraQuery.new("status='#{project[1].to_s}' and project='#{project[0].to_s}'")
     simple_jira.get_issues
-    simple_jira.display_release_notes
+    simple_jira.display_release_notes(project[0].to_s)
 
   when /^auto_query/i
     simple_jira = JiraQuery.new
