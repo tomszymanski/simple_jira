@@ -1,0 +1,7 @@
+:custom_fields:
+- :custom_field : acceptance_criteria 
+  :field_key : 'customfield_10200'
+  :display : true
+- :custom_field : rank
+  :field_key : 'customfield_10004'
+  :display : false
