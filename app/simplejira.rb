@@ -7,20 +7,10 @@ require 'optparse'
 require 'yaml'
 
 require_relative 'gethttpsjson'
-require_relative 'readconfig'
 require_relative 'jiraquery'
+require_relative 'project'
+require_relative 'readconfig'
+require_relative 'simplejiracontroller'
 
-case ARGV[0]
-
-  when /^release_notes/i
-    project = ARGV.slice(1..-1)
-    simple_jira = JiraQuery.new("status='#{project[1].to_s}' and project='#{project[0].to_s}'")
-    simple_jira.get_issues
-    simple_jira.display_release_notes(project[0].to_s)
-
-  when /^auto_query/i
-    simple_jira = JiraQuery.new
-    simple_jira.get_count
-    simple_jira.display_auto_query
-
-end
+@simple_jira = SimpleJiraController.new(ARGV)
+@simple_jira.process_arguments

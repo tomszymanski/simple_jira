@@ -1,0 +1,10 @@
+:projects :
+- :key : BO
+  :release_notes_status : accepted
+- :key : KASI
+  :release_notes_status : closed
+- :key : MEMES
+  :release_notes_status : accepted
+:defaults :
+  :key : MEME
+  :release_notes_status : accepted
