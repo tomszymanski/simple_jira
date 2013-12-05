@@ -14,11 +14,13 @@ class Project
 
   def release_notes_status
     @release_notes_status = @default[:release_notes_status]
+
     @project.each do |project|
       if project[:key] == @key
         @release_notes_status = project[:release_notes_status]
       end
     end
+    
     @release_notes_status
   end
 end

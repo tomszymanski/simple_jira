@@ -12,15 +12,17 @@ class SimpleJiraController
 
   def get_release_notes
     query_string = "status='#{@release_notes_status}' and project='#{@project.key}'"
-    jira = JiraQuery.new(query_string)
-    jira.get_issues
-    jira.display_release_notes(@project.key)
+    jira = JiraQuery.new
+    issue_hash = jira.get_issues(query_string)
+    display = Display.new(issue_hash)
+    display.display_release_notes(@project.key)
   end
 
   def get_auto_query
     jira = JiraQuery.new
-    jira.get_count
-    jira.display_auto_query
+    count_hash = jira.get_count
+    display = Display.new(count_hash)
+    display.display_auto_query
   end
 
   def process_arguments
