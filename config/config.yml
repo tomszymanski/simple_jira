@@ -1,4 +1,4 @@
-config:
-  username : 'user'
-  password : 'password'
-  host : 'https://jira.host.names'
+:config:
+  :username : 'jira-login'
+  :password : 'jira-password'
+  :host : 'https://jira.yoursite.com'

@@ -1,19 +1,24 @@
 class JiraQuery
-  def initialize(query = String.new)
+  def initialize
     @config = ReadConfig.new
     @hash = Hash.new
-    @query_json = GetHttpsJson.new(query).json
+    @empty_release_notes = 'No Release Notes'
   end
 
-  def get_issues
-    @query_json['issues'].each do |issue|
+  def get_issues(query)
+    query_json = GetHttpsJson.new(query).json
+
+    query_json['issues'].each do |issue|
       issue_key = issue['key']
       issue_hash = Hash.new
+
       issue['fields'].each do |key, value|
         issue_hash[key] = value
       end
+
       @hash[issue_key] = issue_hash
     end
+    @hash
   end
 
   def get_count(key = 'total')
@@ -21,21 +26,6 @@ class JiraQuery
       json_result = GetHttpsJson.new(query).json
       @hash[query_name] = json_result[key]
     end
+    @hash
   end
-
-  def display_auto_query
-    @hash.each do |query_name, value|
-      puts "#{query_name}: #{value}"
-    end
-  end
-
-  def display_release_notes
-    @hash.each do |issue, fields|
-      puts "##### {fields['summary']}"
-      puts "###### Jira issue: #{@config.host}/browse/#{issue}"
-      puts fields['description']
-      puts "\n"
-    end
-  end
-
 end
