@@ -28,11 +28,8 @@ class SimpleJiraController
   def process_arguments
     case @user_input_hash[:action]
 
-    when /^release_notes/i
-      get_release_notes
-
-    when /^auto_query/i
-      get_auto_query
+    when /^release_notes/i then get_release_notes
+    when /^auto_query/i then get_auto_query
     end
   end
 end
